@@ -6,7 +6,7 @@
 
 ## Пример отчета
 
-![HtmlReport](FolderAnalizator\bin\Debug\Debug_Report24_06_202315_24_46.html)
+[HtmlReport](FolderAnalizator/bin/Debug/Debug_Report24_06_202315_24_46.html)
 
 ## Средства разработки
 
