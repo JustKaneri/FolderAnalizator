@@ -22,6 +22,9 @@ namespace FolderReport
 
         public HtmlReportBuilder AddStatistic(FolderStatistic statistic)
         {
+            if (statistic == null || statistic.CountType.Count == 0)
+                return this;
+
             _report.HtmlContent += "<div class=\"statistic\"> <h2> Статистика </h2> " +
                  "<div class=\"statistic-list\"> " +
                  "<div> <h3>Формат файлов</h3>" +
@@ -38,6 +41,9 @@ namespace FolderReport
 
         public HtmlReportBuilder AddFolderList(Folder folder)
         {
+            if (folder == null)
+                return this;
+
             _report.HtmlContent += "<div class=\"folder\"> " +
                 $" <h2> Содержание {folder.Name} {folder.GetSize()} </h2> <div class=\"folder-list\">" +
                     CreatorHtmlElement.CreateListFolder(folder)+

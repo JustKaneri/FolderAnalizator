@@ -89,6 +89,8 @@ namespace FolderAnalizator
                 return;
             }
 
+            MessageBox.Show("Дождитесь окончания создания отчета","Внимание",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
             var htmlReport = new HtmlReportBuilder()
                                  .AddStatistic(_statistic)
                                  .AddFolderList(_folder)
@@ -96,10 +98,18 @@ namespace FolderAnalizator
 
             string fileName = Directory.GetCurrentDirectory() +"\\"+ _folder.Name + "_Report" + DateTime.Now.ToString().Replace(".", "_").Replace(" ", "").Replace(":", "_") + ".html";
 
-            using (StreamWriter sw = File.CreateText(fileName))
+            try
             {
-                sw.WriteLine(htmlReport.HtmlContent);
+                using (StreamWriter sw = File.CreateText(fileName))
+                {
+                    sw.WriteLine(htmlReport.HtmlContent);
+                }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Не удалось создать отчет: " + ex.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
 
             System.Diagnostics.Process.Start(fileName);
         }
