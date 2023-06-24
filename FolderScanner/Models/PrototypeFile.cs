@@ -16,12 +16,12 @@
             double result = Size;
             string[] extension = { "Байт", "Кб", "Mб", "Гб" };
             int indexExtenc = 0;
-            while (Size > 1024)
+            while (result > 1024)
             {
-                Size = Size / 1024.0;
+                result = result / 1024.0;
                 indexExtenc++;
             }
-            return string.Format("{0:f1} {1}", Size, extension[indexExtenc]);
+            return string.Format("{0:f1} {1}", result, extension[indexExtenc]);
         }
     }
 }

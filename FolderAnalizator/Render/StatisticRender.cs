@@ -16,7 +16,7 @@ namespace FolderAnalizator
 
             foreach (var item in collection)
             {
-                view.Items.Add($"{item.Key} {item.Value * 100.0 / sumCount:f1}%");
+                view.Items.Add($"{item.Key} - {item.Value} - {item.Value * 100.0 / sumCount:f1}%");
             }
         }
 

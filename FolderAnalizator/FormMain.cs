@@ -4,6 +4,7 @@ using System.IO;
 using FolderScanner;
 using FolderScanner.Models;
 using System.Threading;
+using FolderReport;
 
 namespace FolderAnalizator
 {
@@ -82,6 +83,25 @@ namespace FolderAnalizator
 
         private void BtnReport_Click(object sender, EventArgs e)
         {
+            if(_statistic == null  || _statistic.CountType.Count == 0)
+            {
+                MessageBox.Show("Нет данных для отчета","Внимание",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
+
+            var htmlReport = new HtmlReportBuilder()
+                                 .AddStatistic(_statistic)
+                                 .AddFolderList(_folder)
+                                 .Build();
+
+            string fileName = Directory.GetCurrentDirectory() +"\\"+ _folder.Name + "_Report" + DateTime.Now.ToString().Replace(".", "_").Replace(" ", "").Replace(":", "_") + ".html";
+
+            using (StreamWriter sw = File.CreateText(fileName))
+            {
+                sw.WriteLine(htmlReport.HtmlContent);
+            }
+
+            System.Diagnostics.Process.Start(fileName);
         }
        
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)

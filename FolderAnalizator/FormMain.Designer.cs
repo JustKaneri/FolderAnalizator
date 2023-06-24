@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LstType = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,10 +52,10 @@
             this.TreeFolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TreeFolder.ImageIndex = 0;
             this.TreeFolder.ImageList = this.imageList1;
-            this.TreeFolder.Location = new System.Drawing.Point(0, 0);
+            this.TreeFolder.Location = new System.Drawing.Point(16, 41);
             this.TreeFolder.Name = "TreeFolder";
             this.TreeFolder.SelectedImageIndex = 0;
-            this.TreeFolder.Size = new System.Drawing.Size(444, 453);
+            this.TreeFolder.Size = new System.Drawing.Size(428, 412);
             this.TreeFolder.TabIndex = 0;
             // 
             // imageList1
@@ -138,15 +139,25 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(460, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 19);
+            this.label2.Size = new System.Drawing.Size(125, 19);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Топ форматов файлов";
+            this.label2.Text = "Список форматов";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 19);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Дерево файлов";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(938, 488);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.LstType);
             this.Controls.Add(this.label1);
@@ -182,6 +193,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox LstType;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 
